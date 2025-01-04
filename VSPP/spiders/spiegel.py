@@ -109,7 +109,8 @@ class SpiegelSpider(scrapy.Spider):
         links = response.xpath('//a/@href').getall()
         for link in links:
             absolute_url = response.urljoin(link)
-            if absolute_url not in self.visited_links and 'abo.' not in absolute_url:
+            if (absolute_url not in self.visited_links and 'abo.' not in absolute_url and '/print/' not in absolute_url and 'jobs.' not in absolute_url
+            and '/audio/' not in absolute_url and '/video/' not in absolute_url and 'tv.' not in absolute_url):
                 self.link_queue.put(absolute_url)
 
         # Extract the article's date

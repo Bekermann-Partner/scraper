@@ -109,7 +109,8 @@ class RtlSpider(scrapy.Spider):
         links = response.xpath('//a/@href').getall()
         for link in links:
             absolute_url = response.urljoin(link)
-            if absolute_url not in self.visited_links:
+            if (absolute_url not in self.visited_links and '/tv/' not in absolute_url and '/video/' not in absolute_url and '/videos/' not in absolute_url
+                and '/geld/' not in absolute_url and '/ratgeber/' not in absolute_url and '/leben/' not in absolute_url):
                 self.link_queue.put(absolute_url)
 
         # Only process valid article URLs

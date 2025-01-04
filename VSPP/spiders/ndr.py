@@ -109,7 +109,7 @@ class NdrSpider(scrapy.Spider):
         links = response.xpath('//a/@href').getall()
         for link in links:
             absolute_url = response.urljoin(link)
-            if absolute_url not in self.visited_links:
+            if absolute_url not in self.visited_links and '/radio/' not in absolute_url and '/fernsehen/' not in absolute_url and '/ratgeber/' not in absolute_url:
                 self.link_queue.put(absolute_url)
 
         # Extract the article's date
