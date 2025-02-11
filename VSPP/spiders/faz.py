@@ -109,7 +109,7 @@ class FazSpider(scrapy.Spider):
         links = response.xpath('//a/@href').getall()
         for link in links:
             absolute_url = response.urljoin(link)
-            if absolute_url not in self.visited_links:
+            if absolute_url not in self.visited_links and 'markt.' not in absolute_url:
                 self.link_queue.put(absolute_url)
 
         # Only process valid article URLs

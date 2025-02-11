@@ -110,7 +110,7 @@ class SzSpider(scrapy.Spider):
         for link in links:
             absolute_url = response.urljoin(link)
             if (absolute_url not in self.visited_links and '/Podcast' not in absolute_url and '/raetsel' not in absolute_url
-            and '/das-rezept' not in absolute_url and 'zeitung.' not in absolute_url and 'trauer.' not in absolute_url):
+            and '/das-rezept' not in absolute_url and 'zeitung.' not in absolute_url and 'trauer.' not in absolute_url and 'stellenmarkt.' not in absolute_url):
                 self.link_queue.put(absolute_url)
 
         # Only process valid article URLs
