@@ -100,17 +100,7 @@ fn main() {
             let path = entry.path();
 
             if path.extension() == Some("json".as_ref())
-                && !path.file_name().unwrap().to_str().unwrap().contains("merkur")
-                && !path.file_name().unwrap().to_str().unwrap().contains("rtl")
-                && !path.file_name().unwrap().to_str().unwrap().contains("fr")
-                && !path.file_name().unwrap().to_str().unwrap().contains("tagesschau")
-                && !path.file_name().unwrap().to_str().unwrap().contains("welt")
                 && !path.file_name().unwrap().to_str().unwrap().contains("_filtered")
-                && !path.file_name().unwrap().to_str().unwrap().contains("bild")
-                && !path.file_name().unwrap().to_str().unwrap().contains("faz")
-                && !path.file_name().unwrap().to_str().unwrap().contains("focus")
-                && !path.file_name().unwrap().to_str().unwrap().contains("spiegel")
-                && !path.file_name().unwrap().to_str().unwrap().contains("taz")
             {
                 println!("Processing file: {:?}", path);
 
